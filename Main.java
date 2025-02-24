@@ -12,7 +12,8 @@ public class Main{
       init();
     }
     catch(IOException e){
-      lg.dispMessage(e.getStackTrace(), "warn");
+      lg.dispMessage(e.getMessage(), "warn");
+      e.printStackTrace();
       return;
     }
   }
