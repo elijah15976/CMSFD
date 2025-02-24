@@ -19,16 +19,16 @@ public class Main{
   }
 
   public static void init() throws IOException{
-    File logStuff = new File("./log/log.txt");
+    File logFolder = new File("./log");
     File templateFolder = new File("./template");
 
-    if(!logStuff.exists()){
-      logStuff.mkdir();
+    if(!logFolder.exists()){
+      logFolder.mkdirs();
     }
     if(!templateFolder.exists()){
       templateFolder.mkdir();
     }
 
-    logStuff.createNewFile();
+    new File("./log/log.txt").createNewFile();
   }
 }
