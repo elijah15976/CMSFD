@@ -1,13 +1,17 @@
 //Java Libraries
 import java.io.File;
+import com.sun.net.httpserver.*;
+import java.net.InetSocketAddress;
 
 //Error Libraries
 import java.io.IOException;
 
+
+//Arg[0] = Port number
 public class Main{
   private static Logger lg = new Logger();
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException{
     try{
       init();
     }
@@ -16,6 +20,14 @@ public class Main{
       e.printStackTrace();
       return;
     }
+
+    int port = Integer.valueOf(args[0]);
+    HttpServer server = HttpServer.create(new InetSocketAddress(port),0);
+    lg.dispMessage("System Online", "info");
+
+    
+    server.start();
+    lg.dispMessage("Server is listening on port " + port, "info");
   }
 
   public static void init() throws IOException{
